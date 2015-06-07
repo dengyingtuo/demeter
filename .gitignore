@@ -12,5 +12,5 @@
 build/
 
 # Vim
-.swo
-.swp
+*.swo
+*.swp
