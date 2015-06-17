@@ -1,0 +1,17 @@
+$messagePivotalId=$(egrep -o "^\[#[0-9]{1,16}*\]" $1)
+
+#checks if message is started with tracker id
+if [ -z "$messagePivotalId" ]
+then
+	#checks if branch name is started with tracker id
+	currentBranch=$(git rev-parse --abbrev-ref HEAD)
+	branchPivotalId=$(echo $currentBranch | egrep -o "^[0-9]{1,16}*_" | tr -d [:punct:])
+	
+	if [ -n "$branchPivotalId" ]
+	then
+		#inserts the pivotal id at beginning of the message file
+		sed -i "1s/^/[#$branchPivotalId] /" $1
+	fi
+fi
+
+
