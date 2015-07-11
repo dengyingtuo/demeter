@@ -1,0 +1,16 @@
+# Idea IntelliJ project files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS X crumbs
+.DS_Store
+
+# Gradle files
+.gradle/
+build/
+
+# Vim
+*.swo
+*.swp
